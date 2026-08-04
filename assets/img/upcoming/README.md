@@ -16,17 +16,8 @@ Generated in the same visual language as the live artwork: ink navy `#0B1520`, t
 `llm-attention` and `multimodal-fusion` read best at thumbnail size — reach for those first
 if a project only needs one image.
 
-## First-time setup
-
-The image files aren't in git yet, only this note and the fetch script:
-
-```bash
-bash assets/img/upcoming/fetch.sh
-git add -A && git commit -m "Stage artwork for LLM/multimodal projects" && git push
-```
-
-Roughly 250KB total once converted — no meaningful weight on the repo, and zero weight on
-the site since nothing loads them.
+WebP at quality 82, matching the live artwork — 256KB for all four, and zero weight on the
+site since nothing loads them.
 
 ## Going live later
 
