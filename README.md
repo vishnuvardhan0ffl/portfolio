@@ -13,17 +13,8 @@ python3 -m http.server 8080
 
 Or just double-click `index.html`.
 
-## Get the images local
-
-The six artworks were generated in Higgsfield. They currently load from the Higgsfield CDN
-as a fallback; to pull them down so the site runs fully offline:
-
-```bash
-bash fetch-assets.sh
-```
-
-The markup points at `assets/img/*.png` first and only falls back to the CDN if those files
-aren't there — so it looks right either way.
+Live at <https://vishnuvardhan0ffl.github.io/portfolio/> via GitHub Pages
+(Settings → Pages → `main` / root). Pushing to `main` redeploys.
 
 ## Files
 
@@ -31,10 +22,17 @@ aren't there — so it looks right either way.
 index.html                    all markup
 assets/css/style.css          design system + layout (dark/light via [data-theme])
 assets/js/main.js             interactions + the scenario model
-assets/img/                   artwork (fetch-assets.sh fills this)
+assets/img/*.webp             case-study artwork (generated in Higgsfield)
+assets/img/portrait.jpg       hero portrait
+assets/img/og.jpg             1200x630 social preview (JPEG — WebP is unreliable
+                              in LinkedIn/WhatsApp link unfurls)
+assets/img/favicon.svg        nested-VV stencil mark
 Vishnu_Vardhan_Manikandan_Resume.pdf
-fetch-assets.sh
 ```
+
+Artwork is WebP at quality 82 — 11.8MB of PNG down to 0.5MB, no visible loss. Each `<img>`
+keeps an `onerror` fallback to the original Higgsfield CDN PNG, so a missing local file
+degrades instead of breaking.
 
 ## What's interactive
 
