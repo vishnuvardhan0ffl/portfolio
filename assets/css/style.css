@@ -1,5 +1,5 @@
 /* ============================================================
-   Vishnu Vardhan Manikandan — portfolio
+   Vishnu Vardhan Manikandan, portfolio
    ============================================================ */
 
 /* ---------- tokens ---------- */
@@ -576,7 +576,7 @@ input[type=range]::-moz-range-thumb{
 .led-note{color:var(--muted);font-size:.91rem;margin:0;max-width:46ch;margin-left:auto}
 .led:nth-child(even) .led-note{margin-left:0;margin-right:auto}
 
-/* strengths — band beneath the timeline */
+/* strengths: band beneath the timeline */
 .strengths{
   margin:clamp(40px,6vw,72px) 0 0;border:1px solid var(--line);border-radius:var(--r);
   padding:26px clamp(20px,3vw,30px);background:var(--bg);

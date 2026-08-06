@@ -1,5 +1,5 @@
 /* ============================================================
-   Vishnu Vardhan Manikandan — portfolio interactions
+   Vishnu Vardhan Manikandan, portfolio interactions
    ============================================================ */
 (function () {
   'use strict';
@@ -323,7 +323,7 @@
 
   /* A tornado is only informative if each driver is swung across its own
      plausible range. In a purely multiplicative model a uniform ±20% makes
-     every bar identical — which tells you nothing. So each driver below gets
+     every bar identical, which tells you nothing. So each driver below gets
      the range the evidence actually supports. */
   function drawTornado(v) {
     if (!tornado) return;
@@ -415,8 +415,8 @@
       const email = $('#fEmail').value.trim();
       const msg = $('#fMsg').value.trim();
       if (!name || !email || !msg) { if (status) status.textContent = 'Fill in all three fields.'; return; }
-      const subject = encodeURIComponent('Portfolio enquiry — ' + name);
-      const body = encodeURIComponent(msg + '\n\n—\n' + name + '\n' + email);
+      const subject = encodeURIComponent('Portfolio enquiry from ' + name);
+      const body = encodeURIComponent(msg + '\n\n--\n' + name + '\n' + email);
       window.location.href = 'mailto:vishnuvardhanaus@gmail.com?subject=' + subject + '&body=' + body;
       if (status) status.textContent = 'Opening your mail client…';
     });
