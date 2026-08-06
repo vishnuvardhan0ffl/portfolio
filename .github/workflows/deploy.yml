@@ -1,0 +1,50 @@
+name: Deploy site to GitHub Pages
+
+# The default "Deploy from a branch" pipeline runs every site through
+# Jekyll. This project is plain HTML, CSS and JavaScript with nothing for
+# Jekyll to build, so this workflow uploads the files directly instead.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # lets you re-run it by hand from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it mid-flight
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Show what will be published
+        run: |
+          echo "Files to be deployed:"
+          find . -type f -not -path './.git/*' -not -path './.github/*' | sort
+          echo
+          echo "Total size:"
+          du -sh --exclude=.git --exclude=.github .
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the whole repository as the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
